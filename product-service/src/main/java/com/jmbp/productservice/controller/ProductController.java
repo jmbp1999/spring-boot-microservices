@@ -3,6 +3,7 @@ package com.jmbp.productservice.controller;
 
 import com.jmbp.productservice.dto.ProductRequest;
 import com.jmbp.productservice.dto.ProductResponse;
+import com.jmbp.productservice.model.Product;
 import com.jmbp.productservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,9 +20,8 @@ public class ProductController {
     private final ProductService productService;
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createProduct(@RequestBody ProductRequest productRequest){
-        System.out.println("productRequest arrived");
-             productService.createProduct(productRequest);
+    public Product createProduct(@RequestBody ProductRequest productRequest){
+             return productService.createProduct(productRequest);
     }
 
     @GetMapping
